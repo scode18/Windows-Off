@@ -1,5 +1,5 @@
 @echo off
-title Fuck Total Control & color a
+title Windows Off & color a
 net stop wuauserv >nul
 cd %windir%\SoftwareDistribution\Download\ >nul
 del /q /f /s %windir%\SoftwareDistribution\Download\*.* >nul
@@ -463,28 +463,6 @@ Reg.exe add "HKCU\Software\Microsoft\Windows\CurrentVersion\SettingSync\Groups\W
 DISM /Online /Set-ReservedStorageState /State:Disabled
 Reg.exe add "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppCompat" /v "DisableInventory" /t REG_DWORD /d "1" /f
 Reg.exe add "HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\System" /v "AllowExperimentation" /t REG_DWORD /d "0" /f
-Reg.exe add "HKLM\SOFTWARE\Classes\*\shell\runas" /ve /t REG_SZ /d "Стать владельцем и получить полный доступ" /f
-Reg.exe add "HKLM\SOFTWARE\Classes\*\shell\runas" /v "Icon" /t REG_SZ /d "imageres.dll,101" /f
-Reg.exe add "HKLM\SOFTWARE\Classes\*\shell\runas" /v "NoWorkingDirectory" /t REG_SZ /d "" /f
-Reg.exe add "HKLM\SOFTWARE\Classes\*\shell\runas\command" /ve /t REG_SZ /d "cmd.exe /c takeown /f \"%%1\" && icacls \"%%1\" /grant administrators:F" /f
-Reg.exe add "HKLM\SOFTWARE\Classes\*\shell\runas\command" /v "IsolatedCommand" /t REG_SZ /d "cmd.exe /c takeown /f \"%%1\" && icacls \"%%1\" /grant administrators:F" /f
-Reg.exe add "HKLM\SOFTWARE\Classes\Directory\shell\runas" /ve /t REG_SZ /d "Стать владельцем и получить полный доступ" /f
-Reg.exe add "HKLM\SOFTWARE\Classes\Directory\shell\runas" /v "Icon" /t REG_SZ /d "imageres.dll,101" /f
-Reg.exe add "HKLM\SOFTWARE\Classes\Directory\shell\runas" /v "NoWorkingDirectory" /t REG_SZ /d "" /f
-Reg.exe add "HKLM\SOFTWARE\Classes\Directory\shell\runas\command" /ve /t REG_SZ /d "cmd.exe /c takeown /f \"%%1\" /r /d y && icacls \"%%1\" /grant administrators:F /t" /f
-Reg.exe add "HKLM\SOFTWARE\Classes\Directory\shell\runas\command" /v "IsolatedCommand" /t REG_SZ /d "cmd.exe /c takeown /f \"%%1\" /r /d y && icacls \"%%1\" /grant administrators:F /t" /f
-Reg.exe add "HKLM\SOFTWARE\Classes\dllfile\shell\runas" /ve /t REG_SZ /d "Стать владельцем и получить полный доступ" /f
-Reg.exe add "HKLM\SOFTWARE\Classes\dllfile\shell\runas" /v "HasLUAShield" /t REG_SZ /d "" /f
-Reg.exe add "HKLM\SOFTWARE\Classes\dllfile\shell\runas" /v "Icon" /t REG_SZ /d "imageres.dll,101" /f
-Reg.exe add "HKLM\SOFTWARE\Classes\dllfile\shell\runas" /v "NoWorkingDirectory" /t REG_SZ /d "" /f
-Reg.exe add "HKLM\SOFTWARE\Classes\dllfile\shell\runas\command" /ve /t REG_SZ /d "cmd.exe /c takeown /f \"%%1\" && icacls \"%%1\" /grant administrators:F" /f
-Reg.exe add "HKLM\SOFTWARE\Classes\dllfile\shell\runas\command" /v "IsolatedCommand" /t REG_SZ /d "cmd.exe /c takeown /f \"%%1\" && icacls \"%%1\" /grant administrators:F" /f
-Reg.exe add "HKLM\SOFTWARE\Classes\exefile\shell\runas2" /ve /t REG_SZ /d "Стать владельцем и получить полный доступ" /f
-Reg.exe add "HKLM\SOFTWARE\Classes\exefile\shell\runas2" /v "HasLUAShield" /t REG_SZ /d "" /f
-Reg.exe add "HKLM\SOFTWARE\Classes\exefile\shell\runas2" /v "Icon" /t REG_SZ /d "imageres.dll,101" /f
-Reg.exe add "HKLM\SOFTWARE\Classes\exefile\shell\runas2" /v "NoWorkingDirectory" /t REG_SZ /d "" /f
-Reg.exe add "HKLM\SOFTWARE\Classes\exefile\shell\runas2\command" /ve /t REG_SZ /d "cmd.exe /c takeown /f \"%%1\" && icacls \"%%1\" /grant administrators:F" /f
-Reg.exe add "HKLM\SOFTWARE\Classes\exefile\shell\runas2\command" /v "IsolatedCommand" /t REG_SZ /d "cmd.exe /c takeown /f \"%%1\" && icacls \"%%1\" /grant administrators:F" /f
 Reg.exe add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Serialize" /v "Startupdelayinmsec" /t REG_DWORD /d "0" /f
 chcp 65001 >nul
 for /f "tokens=4 delims= " %%i in ('systeminfo ^| find /i "Total Physical Memory"') do (set mem=%%i)
